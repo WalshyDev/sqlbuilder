@@ -46,6 +46,12 @@ public class InsertBuilder extends AbstractSqlBuilder implements Serializable {
         values.add(value);
         return this;
     }
+    
+    public InsertBuilder setString(String column, String value) {
+        columns.add(column);
+        values.add("'" + value.replace("'", "\'") + "'");
+        return this;
+    }
 
     @Override
     public String toString() {
